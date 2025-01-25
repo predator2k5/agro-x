@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Disease Detector</title>
+    <link rel="stylesheet" href="disease.css">
+    <!-- TensorFlow.js and MobileNet -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"></script>
+    <!-- Loading animation library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<nav class="navbar">
+    <a href="#" class="logo">AGRO-X</a>
+    <button class="menu-btn">☰</button>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="aboutus.html">About Us</a></li>
+        <li><a href="disease.html">Disease</a></li>
+        <li><a href="crop.html">Crop Recommendation</a></li>
+        <li><a href="signin.html">Logout</a></li> 
+    </ul>
+</nav>
+<body>
+    <div class="container">
+        <header>
+            <h1>Crop Disease Detector</h1>
+            <p>Upload a plant image to detect diseases</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <input type="file" id="imageUpload" accept="image/*" hidden>
+                <label for="imageUpload" class="upload-btn">
+                    <i class="fas fa-cloud-upload-alt"></i> Choose Image
+                </label>
+                <p class="file-name" id="fileName">No file chosen</p>
+            </div>
+
+            <div class="preview-section">
+                <div class="image-preview">
+                    <img id="preview" src="#" alt="Preview">
+                    <div id="loader" class="loader hidden">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Analyzing image...</p>
+                    </div>
+                </div>
+                <button id="predictBtn" class="predict-btn" disabled>
+                    <i class="fas fa-search"></i> Analyze Image
+                </button>
+            </div>
+
+            <div class="result-section">
+                <h2>Analysis Results</h2>
+                <div id="result" class="result">
+                    <p>Upload an image and click analyze to see results</p>
+                </div>
+                <div id="suggestions" class="suggestions"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>© 2025 Crop Disease Detector | Debangshu Chatterjee</p>
+        </footer>
+    </div>
+    <script src="disease.js"></script>
+</body>
+</html>
